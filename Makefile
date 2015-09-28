@@ -7,7 +7,7 @@ BIB = bibtex
 .PHONY: all view
 
 all: main.pdf
-	
+
 force: 
 	touch src/main.tex
 	make
@@ -31,7 +31,7 @@ preamble.fmt: src/preamble.tex
 	$(PRE) src/preamble.tex
 
 clean:
-	rm -f *.aux *.log *.out *.toc *.idx *.brf
-
+	rm -f *.acn *.acr *.alg *.aux *.bbl *.bcf *.blg *.dvi *.fdb_latexmk *.fls *.glg *.glo *.gls *.idx *.ilg *.ind *.ist *.lof *.log *.lot *.maf *.mtc *.mtc0 *.nav *.nlo *.out *.pdfsync *.ps *.run.xml *.snm *.synctex.gz *.toc *.vrb *.xdy *.tdo *.brf 
 clean-all:
-	rm -f *.aux *.log *.out *.toc *.idx *.brf *.pdf 
+	make clean
+	rm -f *.pdf 
