@@ -7,6 +7,10 @@ BIB = bibtex
 .PHONY: all view
 
 all: main.pdf
+	
+force: 
+	touch src/main.tex
+	make
 
 view:
 	open main.pdf
