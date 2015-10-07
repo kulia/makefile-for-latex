@@ -1,0 +1,29 @@
+\documentclass[preview]{standalone}
+\usepackage{circuitikz}
+\begin{document}
+
+\begin{figure}
+	\begin{circuitikz}[american, decoration={coil}]
+		\draw(-1.5,-2)to [short,i=$I_p$](1.5,2);
+		\fill[gray, even odd rule] (0,0) circle[radius=1cm] circle[radius=1.5cm];
+		\draw (0,0) node [gray, left=1.5cm, above=1.5cm]{magnetic  core};
+		\begin{scope}
+		\draw[decorate, decoration={aspect=0.4, segment length=3mm, amplitude=5mm}]
+		(1.25,-0.8) coordinate (a) --node[midway,right=0.5cm]{} + (0,2) coordinate (b);
+		\end{scope}
+		% right circuit
+		\draw(4,1.2)coordinate(e1) to[R=R] (4,-0.8)coordinate (e2) ;
+
+		\draw(6,1.2)coordinate(e3) to[open, o-o,l=$v_{out}$] (6,-0.8)coordinate (e4) ;
+		
+		\draw (a) -- (e2)--(e4);
+		\draw (b) -- (e1)--(e3);
+		\draw (a) to [short,i=$I_s$](e2) ;
+		\draw(-1.5,-2)--(0.5,0.66);
+
+
+	\end{circuitikz}
+% \caption{Ammeter uses the method current transformer}
+\end{figure}
+
+\end{document}
