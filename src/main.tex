@@ -1,0 +1,34 @@
+\documentclass[preview]{standalone}
+\usepackage{circuitikz}
+\begin{document}
+
+\begin{circuitikz}[american] \draw
+
+	  (0,0) node [transformer core](T){}  % reminded by @PaulGessler, thanks.
+      (T.A1) node[above] {}
+      (T.A2) node[below] {}
+      (T.B1) node[above] {} 
+      (T.B2) node[below] {}
+      (T.base) node{};
+      
+\draw (T.A1) to[open,v<={$230V_{rms}$}](T.A2);
+\draw (T.B2) to[open,v>=$6 V$](T.B1);
+
+\draw (T.B1) -- (2,0);
+\draw (2,0) -- (2,1);
+\draw (2,1) -- (3,1);
+
+\draw (T.B2) -- (2,-2.1);
+\draw (2,-2.1) -- (2,-3);
+\draw (2,-3) -- (3,-3);
+
+\draw 	(3,1) to[R, l=$R_1$, -*] (3,-1)
+		(3,-1) to[R, l=$R_2$] (3,-3)
+;
+
+\draw (3,-1) to[short, -o] (4,-1);
+\draw (4,-1) node[right] {$v_{out}$}
+
+\end{circuitikz}
+
+\end{document}

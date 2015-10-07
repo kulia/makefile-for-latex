@@ -1,0 +1,1 @@
+sips -s format png main.pdf --out main.png
