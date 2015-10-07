@@ -2,6 +2,7 @@
 \usepackage{circuitikz}
 \begin{document}
 
+<<<<<<< HEAD
 \begin{circuitikz} \draw
 
 (0,0) to[sinusoidal voltage source, o-o,l=$v_{in}$] (0,2)
@@ -21,5 +22,58 @@
 
 ;
 \end{circuitikz}
+=======
+<<<<<<< HEAD
+\begin{figure}
+	\begin{circuitikz}[american, decoration={coil}]
+		\draw(-1.5,-2)to [short,i=$I_p$](1.5,2);
+		\fill[gray, even odd rule] (0,0) circle[radius=1cm] circle[radius=1.5cm];
+		\draw (0,0) node [gray, left=1.5cm, above=1.5cm]{magnetic  core};
+		\begin{scope}
+		\draw[decorate, decoration={aspect=0.4, segment length=3mm, amplitude=5mm}]
+		(1.25,-0.8) coordinate (a) --node[midway,right=0.5cm]{} + (0,2) coordinate (b);
+		\end{scope}
+		% right circuit
+		\draw(4,1.2)coordinate(e1) to[R=R] (4,-0.8)coordinate (e2) ;
+
+		\draw(6,1.2)coordinate(e3) to[open, o-o,l=$v_{out}$] (6,-0.8)coordinate (e4) ;
+		
+		\draw (a) -- (e2)--(e4);
+		\draw (b) -- (e1)--(e3);
+		\draw (a) to [short,i=$I_s$](e2) ;
+		\draw(-1.5,-2)--(0.5,0.66);
+
+
+	\end{circuitikz}
+% \caption{Ammeter uses the method current transformer}
+\end{figure}
+=======
+\begin{circuitikz} \draw
+
+
+(0,0) node[op amp](opamp){}
+
+(opamp.up) -- (-0.1,1) node[above]{$V_{cc}$}
+(opamp.down) -- (-0.1,-1) node[below]{$-V_{cc}$}
+(opamp.+) -- (-1.2,-2){}
+(opamp.-) to[R, *-,l=$R_2$] (-3, 0.5){}
+(opamp.-) -- (-1.2,2){}
+
+(-1.2,-2)node[ground] {}
+(-3, 0.5) to[sinusoidal voltage source, l=$V_{in}$] (-3, -2) {}
+(-3, -2)  node[ground]
+
+(-1.2,2) to[R, l=$R_1$] 	(1.2, 2)
+(1.2, 2) 	--	(1.2,0)
+
+
+(1.2,0)	to[short, -o] (2,0)
+(2,0) node[right] {$v_{out}$}
+% to[open, o-o,l=$v_{out}$] (1.2, -2)
+
+;
+\end{circuitikz}
+>>>>>>> aa21b8c788d50b4978bd7ca6070755dab3233187
+>>>>>>> ca6918ebf5834669920be06a091fa6a35d91225c
 
 \end{document}
