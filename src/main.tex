@@ -1,0 +1,25 @@
+\documentclass[preview]{standalone}
+\usepackage{circuitikz}
+\begin{document}
+
+\begin{circuitikz} \draw
+
+(0,0) to[sinusoidal voltage source, o-o,l=$v_{in}$] (0,2)
+(0,2) to[R, -*, l=$1.2\text{ K\Omega}$] 				(2,2)
+(0,0) node[ground]
+
+(2,2) to[R, l=$4.6\text{ K\Omega}$]			(2, 0)
+(2,0) node[ground]
+
+(2,2) to[short, -o] 								(3, 2)
+(3,2) node[right] {$v_{out}$}
+
+(2,2) -- (2,4)
+(2,4) to[R, -,l=$1.2\text{ K\Omega}$] (6,4)
+(6,0) to[american voltage source, l=$5\ V$] (6,4)
+(6,0) node[ground]
+
+;
+\end{circuitikz}
+
+\end{document}
